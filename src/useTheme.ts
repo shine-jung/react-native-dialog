@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ColorSchemeName, StyleSheet, useColorScheme } from "react-native";
+import { ColorSchemeName, StyleSheet } from "react-native";
 
 export type StyleBuilder = (isDark: boolean) => StyleSheet.NamedStyles<any>;
 
@@ -10,8 +10,8 @@ export interface UseTheme {
 }
 
 const useTheme = (buildStyles: StyleBuilder): UseTheme => {
-  const colorScheme = useColorScheme();
-  const isDark = colorScheme === "dark";
+  const colorScheme = "light";
+  const isDark = false;
 
   const styles = useMemo(() => {
     return buildStyles(isDark);
